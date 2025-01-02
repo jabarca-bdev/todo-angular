@@ -2,13 +2,25 @@
   <div class="content">
     <h2>To-Do List</h2>
     <div class="row">
-      <input type="text" placeholder="Buy milk" />
-      <button>Add</button>
+      <input
+        id="todo-input"
+        type="text"
+        placeholder="Buy milk"
+        [(ngModel)]="todoInput"
+        (keydown.enter)="submit()"
+      />
+      <button (click)="submit()">Add</button>
     </div>
     <ul class="todo-list">
-      <!-- <li class="checked">Task 1<span [innerText]="'\u00d7'"></span></li>
-      <li>Task 2<span [innerText]="'\u00d7'"></span></li>
-      <li>Task 3<span [innerText]="'\u00d7'"></span></li> -->
+      @for (todo of todoList; track $index) {
+      <li
+        [class]="todo.checked ? 'checked' : ''"
+        (click)="onClickTodoItem(todo)"
+      >
+        {{ todo.value }}
+        <span [innerText]="'\u00d7'" (click)="onDeleteTodoItem($index)"></span>
+      </li>
+      }
     </ul>
   </div>
 </main>
