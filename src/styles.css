@@ -39,7 +39,7 @@
   margin-bottom: 25px;
 }
 
-input {
+input[type="text"] {
   flex: 1;
   border: none;
   outline: none;
@@ -61,38 +61,24 @@ button {
 ul li {
   list-style: none;
   font-size: 17px;
-  padding: 12px 8px 12px 50px;
+  padding: 12px 8px 12px 8px;
   user-select: none;
   cursor: pointer;
   position: relative;
+  display: flex;
+  align-items: baseline;
 }
 
-ul li::before {
-  content: "";
-  position: absolute;
-  height: 28px;
-  width: 28px;
-  border-radius: 50%;
-  background-image: url(assets/unchecked.png);
-  background-size: cover;
-  background-position: center;
-  top: 12px;
-  left: 8px;
+ul li span {
+  flex-grow: 1;
 }
 
-ul li.checked {
+ul li.checked span {
   color: #555;
   text-decoration: line-through;
 }
 
-ul li.checked::before {
-  background-image: url(assets/checked.png);
-}
-
-ul li span {
-  position: absolute;
-  right: 0;
-  top: 5px;
+ul li i {
   width: 40px;
   height: 40px;
   font-size: 22px;
@@ -102,6 +88,6 @@ ul li span {
   border-radius: 50%;
 }
 
-ul li span:hover {
+ul li i:hover {
   background: #edeef0;
 }

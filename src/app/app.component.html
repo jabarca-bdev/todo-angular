@@ -13,12 +13,11 @@
     </div>
     <ul class="todo-list">
       @for (todo of todoList; track $index) {
-      <li
-        [class]="todo.checked ? 'checked' : ''"
-        (click)="onClickTodoItem(todo)"
-      >
-        {{ todo.value }}
-        <span [innerText]="'\u00d7'" (click)="onDeleteTodoItem($index)"></span>
+      <li [class]="todo.checked ? 'checked' : ''">
+        <span (click)="onClickTodoItem(todo)">{{ todo.value }}</span>
+        <!-- <div class="todo-container" (click)="onClickTodoItem(todo)">
+        </div> -->
+        <i [innerText]="'\u00d7'" (click)="onDeleteTodoItem($index)"></i>
       </li>
       }
     </ul>

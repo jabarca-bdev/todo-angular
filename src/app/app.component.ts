@@ -18,17 +18,16 @@ export class AppComponent {
   todoList: TodoItem[] = [];
 
   onClickTodoItem(todo: TodoItem) {
+    console.log('clicked item');
     todo.checked = !todo.checked;
   }
 
   onDeleteTodoItem(index: number) {
-    console.log(index);
-    this.todoList.filter((item, idx) => idx !== index);
+    console.log('clicked button');
+    this.todoList = this.todoList.filter((item, idx) => idx !== index);
   }
 
   submit() {
-    console.log(this.todoInput);
-
     if (this.todoInput.length) {
       this.todoList.push({
         checked: false,
